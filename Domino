@@ -1,0 +1,11 @@
+def domino(n,m):
+    if m > 16 or n > 16:
+        exit()
+    elif m < 1 or n < 1 :
+        exit()
+    mult = m * n
+    if mult % 2 == 0:
+        return int(mult/2)
+    else :
+        num = mult/2
+        return num.__floor__()
