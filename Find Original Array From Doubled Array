@@ -1,0 +1,22 @@
+class Solution(object):
+    def findOriginalArray(self, changed):
+        lens = len(changed)
+        fin = []
+        if lens %2 != 0:
+            return []
+        else:
+            for a in range(0, len(changed)):
+                for b in range(0, len(changed)):
+                    if a*2 == b:
+                        if 0 in changed:
+                            return []
+                        else :
+                            fin.append(changed[a])
+        if(len(fin) == int(lens/2)):
+            return fin
+        else :
+            return []
+        """
+        :type changed: List[int]
+        :rtype: List[int]
+        """
