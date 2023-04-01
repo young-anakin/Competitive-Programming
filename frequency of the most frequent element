@@ -1,0 +1,17 @@
+class Solution(object):
+
+    def maxFrequency(self, nums, k):
+        count = 0
+        
+        max = nums[-1]
+        # for a in range(0, len(nums)):
+        for b in range(0, len(nums)):
+            if(nums[b] + k >= nums[-1]):
+                count += 1
+                k = nums[-1] - nums[b]
+        return count
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
