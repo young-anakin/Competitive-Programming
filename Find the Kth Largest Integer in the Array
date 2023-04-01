@@ -1,0 +1,12 @@
+class Solution(object):
+    def kthLargestNumber(self, array, k):
+        for a in range(0, len(array)):
+            for b in range(0, len(array)):
+                if int(array[a]) < int(array[b]):
+                    array[a], array[b] = array[b], array[a]
+        return array[-k]
+        """
+        :type nums: List[str]
+        :type k: int
+        :rtype: str
+        """
