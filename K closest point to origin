@@ -1,0 +1,27 @@
+class Solution(object):
+    def kClosest(self, points, k):
+        dict = {}
+        li2 = []
+        for x in points:
+            x_a = 0-x[0]
+            y_b = 0-x[1]
+            x_a = x_a**2
+            y_b = y_b**2
+
+            fin = x_a + y_b
+            fin = math.sqrt(fin)
+            fin = round(fin,2)
+            dict[fin] = x
+
+            print(dict.items())
+        li2 = sorted(dict)
+        li = [li2[a] for a in range(0, k)]
+        li3 = []
+        for key in li:
+            li3.append(dict[key])
+        return li3
+        """
+        :type points: List[List[int]]
+        :type k: int
+        :rtype: List[List[int]]
+        """
