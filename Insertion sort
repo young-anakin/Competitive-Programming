@@ -1,0 +1,34 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'insertionSort1' function below.
+#
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY arr
+#
+
+def insertionSort1(m, array):
+    max = array[m-1]
+    for a in range(0, m):
+        if max < arr[m-2]:
+            array[m-1] = array[m-2]
+            m-=1
+            print(*array)
+        else :
+            array[m-1] = max
+            print(*array)
+            break
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort1(n, arr)
