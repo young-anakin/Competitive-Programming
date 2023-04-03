@@ -1,0 +1,5 @@
+class Solution(object):
+    def minPairSum(self, nums):
+        maxs = max(nums)
+        mins = min(nums)
+        return maxs+mins
