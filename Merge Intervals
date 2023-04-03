@@ -1,0 +1,21 @@
+class Solution(object):
+    def merge(self, ass):
+        remove = []
+        new_ass = []
+        for a in range(0, len(ass)-1):
+            if(ass[a][1] >= ass[a+1][0]):
+                new_ass.append([ass[a][0], ass[a+1][1]])
+                remove.append(a)
+                remove.append(a+1)
+                continue
+
+        for a in range(0, len(ass)):
+            if a in remove:
+                continue
+            else :
+                new_ass.append(ass[a])
+        return new_ass
+        """
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        """
