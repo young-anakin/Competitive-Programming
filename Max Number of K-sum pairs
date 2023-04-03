@@ -1,0 +1,20 @@
+class Solution(object):
+    def maxOperations(self, list, k):
+        act = 0
+        counter = 0
+        for a in range(0, len(list)):
+            if list.count(a) > 1:
+                act +=1
+
+        if act > 0:
+            counter +=1
+        new = set(list)
+
+        list = [a for a in new]
+        # print(list)
+        for a in range(0, len(list)-1):
+            for b in range(a+1, len(list)):
+                # print(list[a], " ", list[b])
+                if list[a] + list[b] == k:
+                    counter += 1
+        return counter
