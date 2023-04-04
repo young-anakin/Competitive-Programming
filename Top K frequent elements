@@ -1,0 +1,20 @@
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        sets = set(nums)
+        ab = [a for a in sets]
+        counter = []
+        for a in range(0, len(ab)):
+            counter.append(nums.count(ab[a]))
+
+        dict = {}
+        for a in range(0, len(ab)):
+            dict[counter[a]] = ab[a]
+
+        counter.sort(reverse=True)
+
+        finli = []
+
+        co = 0
+        for a in range(0, k):
+            finli.append(dict[counter[a]])
+        return finli
