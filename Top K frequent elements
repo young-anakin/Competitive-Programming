@@ -7,14 +7,22 @@ class Solution(object):
             counter.append(nums.count(ab[a]))
 
         dict = {}
+        # print(len(ab))
         for a in range(0, len(ab)):
-            dict[counter[a]] = ab[a]
+            dict[ab[a]] = counter[a]
 
         counter.sort(reverse=True)
 
         finli = []
-
         co = 0
-        for a in range(0, k):
-            finli.append(dict[counter[a]])
+        print(dict)
+
+
+        for key, values in dict.items():
+            if (co == 2):
+                continue
+            else :
+                finli.append(key)
+            co += 1
         return finli
+        
