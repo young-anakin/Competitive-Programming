@@ -1,0 +1,16 @@
+class Solution(object):
+    def checkArithmeticSubarrays(self, nums, l, r):
+        li2 = []
+        for a in range(0,len(r)):
+            li = [nums[b] for b in range(l[a], r[a]+1)]
+            li.sort()
+            res = li[1] - li[0]
+
+            # print(res)
+            ab = True
+            for a in range(0, len(li)-1):
+                if li[a+1] - li[a] != res:
+                    ab = False
+            li2.append(ab)
+
+        return li2
