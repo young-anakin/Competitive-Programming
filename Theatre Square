@@ -1,0 +1,4 @@
+def theatre_square(n,m,a):
+    input_a = n-a
+    input_b = m-a
+    return input_b + input_a
