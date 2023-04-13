@@ -1,0 +1,33 @@
+#User function Template for python3
+
+class Solution: 
+    def select(self, arr, i):
+        min = i
+        for a in range(i, len(arr)):
+            if arr[min] > arr[a]
+            min = a
+        arr[min], arr[i] = arr[i], arr[min]
+        return arr[i]
+            
+    def selectionSort(self, arr,n):
+        arr2 = []
+        x=0
+        for i in range(0, n):
+            x = select(a, i)
+            arr2.append(x)
+        return arr2
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__': 
+    t = int(input())
+    for _ in range(t):
+        n = int(input())
+        arr = list(map(int, input().strip().split()))
+        Solution().selectionSort(arr, n)
+        for i in range(n):
+            print(arr[i],end=" ")
+        print()
+# } Driver Code Ends
