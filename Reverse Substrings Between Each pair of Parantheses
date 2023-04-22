@@ -1,0 +1,26 @@
+class Solution(object):
+    def reverseParentheses(self, s):
+        from collections import deque
+        stack1 = deque()
+        stack2 = deque()
+        s = str(s)
+
+        for a in s:
+            if a != ')':
+                stack1.append(a)
+            else:
+                
+                stack2 = []
+                for b in range(0,len(stack1)):
+
+                        var = stack1.pop()
+                        if var == '(':
+                            break
+                        else:
+                            stack2.append(var)
+                stack1.extend(stack2)
+        finstr = ""
+        for a in range(0, len(stack1)):
+            finstr += stack1[a]
+
+        return (finstr)
