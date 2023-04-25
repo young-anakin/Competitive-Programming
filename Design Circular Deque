@@ -1,0 +1,107 @@
+from collections import deque
+
+
+class MyCircularDeque(object):
+    from collections import deque
+
+    def __init__(self, k):
+        self.container = deque()
+        self.len = k
+        """
+        :type k: int
+        """
+
+    def insertFront(self, value):
+        stack2 = deque()
+        count = 0
+        if len(self.container) == self.len:
+            return False
+        for a in range(0, len(self.container)):
+            count += 1
+            stack2.append(self.container[a])
+        self.container = []
+        self.container.append(value)
+
+
+        for b in range(0, len(stack2)):
+            self.container.append(stack2[b])
+        stack2 = []
+        return True
+        """
+        :type value: int
+        :rtype: bool
+        """
+
+    def insertLast(self, value):
+        if len(self.container) >= self.len  :
+            return False
+        else :
+            self.container.append(value)
+            return True
+        """
+        :type value: int
+        :rtype: bool
+        """
+
+    def deleteFront(self):
+        if len(self.container) == 0:
+            return False
+        stack2 = deque()
+        stack2.extend(self.container)
+        self.container = []
+
+        # for a in range(0, len(self.container)):
+        #     if len(self.container) == 0:
+        #         break
+        #     stack2.append(self.container.pop(a))
+
+        for b in range(1, len(stack2)):
+            self.container.append(stack2[b])
+        staCk2 = []
+
+        return True
+        """
+        :rtype: bool
+        """
+
+    def deleteLast(self):
+        if len(self.container) == 0:
+            return False
+        self.container.pop()
+        return True
+        """
+        :rtype: bool
+        """
+
+    def getFront(self):
+        if len(self.container) == 0:
+            return -1
+        else :
+            return self.container[0]
+        """
+        :rtype: int
+        """
+
+    def getRear(self):
+        if len(self.container) == 0:
+            return -1
+        else :
+            return self.container[-1]
+        """
+        :rtype: int
+        """
+
+    def isEmpty(self):
+        if len(self.container) == 0:
+            return True
+        else:
+            return False
+        """
+        :rtype: bool
+        """
+
+    def isFull(self):
+        if len(self.container) >= self.len:
+            return True
+        else :
+            return False
