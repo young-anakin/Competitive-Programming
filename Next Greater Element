@@ -1,0 +1,14 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        from collections import deque
+        count = 0
+        stack = deque()
+        for a in nums1:
+            count += 1
+            for b in range(nums2.index(a), len(nums2)):
+                if nums2[b] > a:
+                    stack.append(nums2[b])
+                    break
+            if len(stack) != count:
+                stack.append(-1)
+        return stack 
