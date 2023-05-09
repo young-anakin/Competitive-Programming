@@ -1,0 +1,12 @@
+class Solution(object):
+    def carFleet(self, target, position, speed):
+        tar_pos = [[a, b] for a,b in zip(position, speed)]
+        stack = []
+        for a,b in sorted(tar_pos)[::-1]:
+            stack.append((target-a)/b)
+            if len(stack) >=2 and stack[-1]  <= stack[-2]:
+                stack.pop()
+        return len(stack)
+
+
+
