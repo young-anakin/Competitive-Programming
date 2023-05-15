@@ -1,0 +1,17 @@
+class Solution(object):
+    def validateStackSequences(self, pushed, popped):
+        a = pushed[0]
+        b = popped[0]
+        stack = []
+        for a in range(0, len(pushed)):
+            if pushed[a] != b:
+                stack.append(pushed[a])
+            else:
+                popped.pop(0)
+                b = popped[0]
+        # print(stack, popped)
+        # popped.reverse()
+        if stack == popped:
+            return True
+        else :
+            return False
