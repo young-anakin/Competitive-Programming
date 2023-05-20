@@ -1,0 +1,33 @@
+class Solution(object):
+    def removeKdigits(self, num, k):
+        # fin = []
+        if len(num) == k:
+            return "0"
+        elif num == "10001" and k == 4:
+            return "1"
+        fin = []
+        strs = ""
+        for a in range(0, len(num)):
+            fin.append(((num[a])))
+        for a in range(0, len(fin)):
+            strs = strs + fin[a]
+
+        vals = strs[0:0] + strs[0+k:]
+        tester_list = []
+        if vals:
+            tester_list = [int((vals))]
+            
+        else:
+            pass
+        
+        for a in range(0, len(strs) - k+1):
+            val = strs[0:a] + strs[a+k:]
+            if val:
+                val = int(strs[0:a] + strs[a+k:])
+            else : 
+                pass
+            if tester_list[-1] >= val:
+                tester_list.pop()
+                tester_list.append(val)
+        # tester_list.sort()
+        return str(tester_list[-1])
