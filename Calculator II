@@ -1,0 +1,56 @@
+class Solution(object):
+    def calculate(self, s):
+        if s.count('+') == 0 and s.count('-') == 0 and s.count('/') == 0 and s.count('*') == 0:
+            return int(float(s))
+        count = 0
+        unit_stack = []
+        op_stack = []
+        ptr1 = 0
+        for a in range(0, len(s)-1):
+
+            ptr2 = a+1
+            if ptr2+1 == len(s):
+                unit_stack.append(s[ptr1:ptr2+1])
+                if len(op_stack)+1 == len(unit_stack):
+                    if op_stack[-1] == '*':
+                        op_stack.pop()
+                        a = unit_stack.pop()
+                        b = unit_stack.pop()
+                        unit_stack.append(int(float(b)) * int(float(a)))
+                    elif op_stack[-1] == '/':
+                        op_stack.pop()
+                        a = unit_stack.pop()
+                        b = unit_stack.pop()
+                        unit_stack.append(int(float(b) / float(a)))
+
+            if s[ptr2] == '+' or s[ptr2] == '-' or s[ptr2] == '/' or s[ptr2] == '*':
+                unit_stack.append(s[ptr1:ptr2])
+                # print(len(op_stack), len(unit_stack))
+                # print(op_stack, unit_stack)
+                if len(op_stack)+1 == len(unit_stack) and len(op_stack) != 0 :
+                    if op_stack[-1] == '*':
+                        op_stack.pop()
+                        a = unit_stack.pop()
+                        b = unit_stack.pop()
+                        unit_stack.append(int(float(b)) * int(float(a)))
+                    elif op_stack[-1] == '/':
+                        op_stack.pop()
+                        a = unit_stack.pop()
+                        b = unit_stack.pop()
+                        unit_stack.append(int(float(b)) / int(float(a)))
+                op_stack.append(s[ptr2])
+                ptr1 = ptr2+1
+                count = count+1
+
+        unit_stack.reverse()
+        op_stack.reverse()
+        while len(unit_stack) != 1:
+            a = unit_stack.pop()
+            b = op_stack.pop()
+            c = unit_stack.pop()
+            if b == '+':
+                unit_stack.append(int(float(a)) + int(float(c)))
+            else:
+                unit_stack.append(int(float(a)) - int(float(c)))
+        # print(unit_stack, op_stack)
+        return unit_stack[-1]
