@@ -1,0 +1,17 @@
+class Solution(object):
+
+    def minIncrementForUnique(self, nums):
+        nums.sort()
+        min = nums[0]
+        count = 0
+        for a in range(1, len(nums)):
+            # print(min, nums[a])
+
+            if nums[a] <= min:
+                min = min + 1
+                print(abs(min - nums[a]))
+                count = count + abs((min - nums[a]))
+            else :
+                min = nums[a]
+
+        return count
