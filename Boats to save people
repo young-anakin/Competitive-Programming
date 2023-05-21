@@ -1,0 +1,23 @@
+class Solution(object):
+    def numRescueBoats(self, people, limit):
+        """
+        :type people: List[int]
+        :type limit: int
+        :rtype: int
+        """
+        people.sort()
+        a = 0
+        b = len(people)-1
+        count = 0
+        while(b-a  > 0):
+            if people[a] + people[b] <= limit:
+                count = count + 1
+                a= a + 1
+                b = b-1
+            else :
+                b = b-1
+                count = count+1
+        if b-a == 0:
+            count = count + 1
+
+        return count
