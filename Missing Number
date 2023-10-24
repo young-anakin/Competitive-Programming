@@ -1,0 +1,12 @@
+class Solution(object):
+    def missingNumber(self, nums):
+        nums.sort()
+        if nums.count(0) == 0:
+            return 0
+        for a in range(0, len(nums)-1):
+            if nums[a]+1 == nums[a+1]:
+                pass
+            else :
+                return (nums[a+1]) - 1
+        return nums[-1] + 1
+        
