@@ -1,0 +1,14 @@
+def swap_case(s):
+    new_str = ""
+    for a in range(0, len(s)):
+        if 65 <= ord(s[a]) <= 95:
+            new_str += s[a].lower()
+        elif 97 <= ord(s[a]) <= 122:
+            new_str += s[a].upper()
+        else :
+            new_str += s[a]
+    return new_str
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
