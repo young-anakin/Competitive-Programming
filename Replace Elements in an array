@@ -1,0 +1,13 @@
+class Solution(object):
+    def arrayChange(self, nums, operations):
+        dict1 = {}
+        for a in range(0, len(nums)):
+            dict1[nums[a]] = a
+
+        for a in range(0, len(operations)):
+            dict1[operations[a][1]] = dict1[operations[a][0]]
+            del dict1[operations[a][0]]
+
+        new_arr = [key for key, value in sorted(dict1.items(), key=lambda item: item[1])]
+
+        return new_arr
