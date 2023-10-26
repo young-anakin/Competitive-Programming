@@ -1,0 +1,12 @@
+from typing import List
+
+class Solution:
+    def processString(self, s: str, spaces: List[int]) -> str:
+        for a in range(0, len(spaces)):
+            s = s[0: spaces[a]+a] + " " + s[spaces[a]+a:]
+        return s
+
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        for a in range(0, len(spaces)):
+            s = s[0: spaces[a]+a] + " " + s[spaces[a]+a:]
+        return s
