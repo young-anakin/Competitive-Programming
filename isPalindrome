@@ -1,0 +1,21 @@
+class Solution(object):
+    def removeSpecialCharacter(self,s):
+        i = 0
+        while i < len(s):
+            if (ord(s[i]) < ord('A') or
+                    ord(s[i]) > ord('Z') and
+                    ord(s[i]) < ord('a') or
+                    ord(s[i]) > ord('z')) and ord(s[i]) > ord('9') or ord(s[i]) < ord('0'):
+                del s[i]
+                i -= 1
+            i += 1
+
+        return("".join(s).lower())
+    def isPalindrome(self, s):
+        S = [i for i in s]
+        S = self.removeSpecialCharacter(S)
+        if S[0:len(S)] == S[::-1]:
+            return True
+        else:
+            return False
+        
