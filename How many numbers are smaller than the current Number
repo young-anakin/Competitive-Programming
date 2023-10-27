@@ -1,0 +1,8 @@
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        new_nums = sorted(nums)
+        finalement = []
+        for a in range(0, len(new_nums)):
+            finalement.append(new_nums.index(nums[a]))
+        return finalement
+        
