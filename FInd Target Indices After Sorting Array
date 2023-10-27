@@ -1,0 +1,16 @@
+class Solution(object):
+    def targetIndices(self, nums, target):
+        if target not in nums: 
+            return []
+        output = []
+        sortedNums = sorted(nums)
+        for a in range(0, len(sortedNums)):
+            x = sortedNums.index(target)
+            while sortedNums[x] == target:
+                output.append(x)
+                if(x+1 == len(sortedNums)):
+                    break
+                x+=1
+            break
+        return output
+        
