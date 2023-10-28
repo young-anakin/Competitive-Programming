@@ -1,0 +1,13 @@
+def fun(arr):
+    new_arr = sorted(arr)
+    val = ""
+    if new_arr.count(arr[0]) == len(arr):
+        return "YES"
+    for a in range(0, len(arr)-1):
+        if abs(new_arr[a] - new_arr[a+1]) <= 1:
+            pass
+        else:
+            return "NO"
+    return "YES"
+
+
