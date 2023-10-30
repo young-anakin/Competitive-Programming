@@ -1,19 +1,15 @@
 class Solution(object):
     def maxArea(self, height):
-        a = 0
-        b = len(height)-1
-        lena = 0
-        lenb = 0
-        stack = [0]
-        while a != b:
-            ms = min(height[a], height[b])
-            diff = b-a
-            stack.append(diff*ms)
-            if(height[a] >= height[b]):
-                b = b-1
-            else:
-                a = a+1
-
-        stack.sort()
-
-        return max(stack)
+        x = 0
+        maxs = 0
+        prev = 0
+        y = len(height)-1
+        while x!= y:
+            maxs = (y-x) * min(height[x], height[y])
+            if height[x] < height[y]:
+                x+=1
+            else :
+                y-=1
+            if prev < maxs:
+                prev = maxs
+        return prev
