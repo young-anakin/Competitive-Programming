@@ -1,0 +1,15 @@
+class Solution(object):
+    def twoSum(self, numbers, target):
+        x = 0
+        y = len(numbers)-1
+        while True:
+            if numbers[x] + numbers[y] == target:
+                return [x+1, y+1]
+            if numbers[x] + numbers[y] > target:
+
+                y -= 1
+            else:
+                x+=1
+
+
+        
