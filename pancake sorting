@@ -1,0 +1,17 @@
+class Solution(object):
+    def pancakeSort(self, arr):
+        finalisiment = []
+        si = len(arr)
+        for a in range(0, len(arr)):
+            maxi = max(arr)
+            first = list(reversed(arr[0:arr.index(maxi)+1])) + arr[arr.index(maxi)+1:]
+            finalisiment.append(arr.index(maxi)+1)
+
+            second = list(reversed(first))
+            second.pop(-1)
+            arr = second
+            
+            finalisiment.append(si)
+            si = si -1
+        return finalisiment
+            
