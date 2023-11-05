@@ -1,0 +1,20 @@
+class Solution(object):
+    def maxOperations(self, nums, k):
+        first = 0
+        last = len(nums)-1
+        arr = 0
+        arrs = []
+        nums.sort()
+        while(first < last):
+            sum = nums[first] + nums[last]
+            if sum == k:
+                arr +=1
+                arrs.append([nums[first], nums[last]])
+                first +=1
+                last -=1
+            elif sum < k:
+                first +=1
+            else:
+                last -=1
+        return arr
+        
