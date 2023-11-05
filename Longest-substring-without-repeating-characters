@@ -1,0 +1,19 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        arr = [0]
+        identifier = []
+        first = 0
+        second = 0
+        dict = {}
+        while (first != len(s)):
+            if s[first] not in dict:
+                dict[s[first]] = 1
+                first += 1
+            else:
+                first = second + 1
+                second = first
+                arr.append(len(dict))
+                dict = {}
+        arr.append(len(dict))
+        return(max(arr))
+        
