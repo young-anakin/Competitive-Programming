@@ -1,0 +1,23 @@
+class Solution(object):
+    def minSubArrayLen(self, target, nums):
+        SumNums = [0]
+        arr = []
+        sum = 0
+        for a in range(0, len(nums)):
+            sum+= nums[a]
+            SumNums.append(sum)
+        print(SumNums)
+        first = 0
+        last = 0
+        if SumNums[-1] < target:
+            return 0
+        while(first != len(SumNums)):
+            val = SumNums[last] - SumNums[first]
+            if val < target:
+                last +=1
+            else:
+                arr.append(last-first)
+                first +=1
+            if last == len(SumNums):
+                break
+        return min(arr)
