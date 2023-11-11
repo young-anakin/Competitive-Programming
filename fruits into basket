@@ -1,0 +1,36 @@
+class Solution(object):
+    def totalFruit(self, fruits):
+        first = 0
+        last = 0
+        dict = {}
+        max = 0
+        while last < len(fruits):
+            if fruits[last] not in dict and len(dict) >= 2:
+                if dict[fruits[first]] == 1:
+                    del dict[fruits[first]]
+                else :
+                    dict[fruits[first]] -= 1
+                first += 1
+                dict[fruits[last]] = 1
+            elif len(dict) > 2:
+                if dict[fruits[first]] == 1:
+                    del dict[fruits[first]]
+                else :
+                    dict[fruits[first]] -= 1
+                first += 1
+
+                if fruits[last] not in dict:
+                    dict[fruits[last]] = 1
+                else :
+                    dict[fruits[last]]+=1
+            elif fruits[last] not in dict:
+                dict[fruits[last]] = 1
+            else:
+                dict[fruits[last]] += 1
+            last += 1
+            if len(dict) <= 2:
+                val = sum(dict.values())
+                if val > max:
+                    max = val
+
+        return max
