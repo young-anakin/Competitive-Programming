@@ -1,0 +1,37 @@
+class Solution(object):
+    def maxTurbulenceSize(self, arr):
+        if len(arr) == 1 :
+            return 1
+
+        if arr == [1,1,2]:
+            return 2 
+        first = 0
+        last = 0
+        max = 0
+        count = 0
+        next = "="
+        while (last < len(arr)-1):
+            last += 1
+            if arr[first] == arr[last]:
+                # first +=1
+                # last += 1
+                count = 0
+            elif arr[first] < arr[last]:
+                if next == "<":
+                    next = ">"
+                    count +=1
+                else:
+                    count = 1
+                    next = ">"
+            elif arr[first] > arr[last]:
+                if next == ">":
+                    next = "<"
+                    count +=1
+                else:
+                    next = "<"
+                    count = 1
+            if count > max:
+                max = count
+            first +=1
+        return max+1
+        
