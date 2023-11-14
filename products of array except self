@@ -1,0 +1,33 @@
+import collections
+
+class Solution(object):
+
+
+    def productExceptSelf(self, nums):
+        prefix = []
+        # remember to add 1 add the end of postfix
+        postfix = []
+        for a in range(0, len(nums)):
+            if a == 0:
+                prefix.append(nums[a] * 1)
+            else :
+                prefix.append(nums[a] * prefix[-1])
+        b = len(nums)-1
+        de = collections.deque()
+        while (b >= 0):
+            if b == len(nums)-1:
+                de.appendleft(nums[b]*1)
+            else :
+                de.appendleft(de[0] * nums[b])
+            b -=1
+        postfix = list(de)
+        answer = []
+        for a in range(0, len(nums)):
+            if a == 0:
+                answer.append(1 * postfix[a+1])
+            elif a == len(nums)-1:
+                answer.append(prefix[a-1] * 1)
+            else:
+                answer.append(prefix[a-1] * postfix[a+1])
+        return answer
+        
