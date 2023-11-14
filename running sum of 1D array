@@ -1,0 +1,7 @@
+class Solution(object):
+    def runningSum(self, nums):
+        answer = [0]
+        for a in range(0, len(nums)):
+            answer.append(answer[-1] + nums[a])
+        answer.pop(0)
+        return answer
