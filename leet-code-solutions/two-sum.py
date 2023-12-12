@@ -1,0 +1,12 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        dict1 = {}
+        ans = []
+        for a in range(0, len(nums)):
+            if target - nums[a] not in dict1:
+                dict1[nums[a]] = a
+            else :
+                ans.append(a)
+                ans.append(dict1[target-nums[a]])
+                return ans
+        
