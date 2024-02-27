@@ -1,0 +1,13 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        from collections import deque
+        stack = deque()
+        li2 = [-1 for a in range(0, len(nums1))]
+        for a in range(0, len(nums2)):
+            while stack and nums2[a] > stack[-1]:
+                num = stack.pop()
+                li2.insert(nums1.index(num),nums2[a])
+                li2.pop(nums1.index(num)+1)
+            if nums2[a] in nums1:
+                stack.append(nums2[a])
+        return li2
